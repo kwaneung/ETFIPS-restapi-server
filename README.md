@@ -20,3 +20,4 @@ user_service.py : 로직 처리
 - delete : delete user {id}
 
 공인IP 및 포트포워딩 체크
+"insecure-registries": ["내부IP:포트#"]
