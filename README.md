@@ -18,3 +18,5 @@ user_service.py : 로직 처리
 - patch : update user {id, passwd} password 변경
 - get : get user
 - delete : delete user {id}
+
+공인IP 및 포트포워딩 체크
