@@ -25,6 +25,7 @@ class User(Resource):
         if id in users:  # 이미 존재하면 실패
             return False
         else:
+            # 패스워드 검증 후 틀리면 False
             return user_DAO.insertUser(id, passwd)
 
     def delete(self):  # delete
@@ -55,6 +56,7 @@ class User(Resource):
         if id in users:
             return user_DAO.updateUser(id, passwd)
         else:
+            # 패스워드 검증 후 틀리면 False
             return False
 
     def put(self):  # put method :  all change(Delete and insert)
