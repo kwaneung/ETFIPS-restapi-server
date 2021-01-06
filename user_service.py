@@ -23,7 +23,7 @@ class User(Resource):
         users = [i[0] for i in users]
 
         if id in users:  # 이미 존재하면 실패
-            return "Falseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+            return "testFalseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
         else:
             # 패스워드 검증 후 틀리면 False
             return user_DAO.insertUser(id, passwd)
