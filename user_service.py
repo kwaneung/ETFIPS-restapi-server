@@ -4,6 +4,7 @@ from flask_restful import reqparse
 
 import user_DAO
 
+# 추후 logging 모듈을 통해 False마다 이유 로그 출력해주자.
 
 class User(Resource):
     def get(self):  # select
@@ -45,18 +46,17 @@ class User(Resource):
     def patch(self):  # update
         parser = reqparse.RequestParser()
         parser.add_argument('ID', type=str)
-        parser.add_argument('old_passwd', type=str)
-        parser.add_argument('new_passwd', type=str)
+        parser.add_argument('passwd', type=str)
         args = parser.parse_args()
 
         id = args['ID']
-        old_passwd = args['old_passwd']
-        new_passwd = args['new_passwd']
+        passwd = args['passwd']
 
         users = user_DAO.getUser()
-        # users = [i[0] for i in users]
-        if (id, old_passwd) in users:
-            return user_DAO.updateUser(id, new_passwd)
+        users = [i[0] for i in users]
+        # 패스워드 검증 후 틀리면 False
+        if id in users:
+            return user_DAO.updateUser(id, passwd)
         else:
             return False
 
