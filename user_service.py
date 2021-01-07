@@ -45,18 +45,19 @@ class User(Resource):
     def patch(self):  # update
         parser = reqparse.RequestParser()
         parser.add_argument('ID', type=str)
-        parser.add_argument('passwd', type=str)
+        parser.add_argument('old_passwd', type=str)
+        parser.add_argument('new_passwd', type=str)
         args = parser.parse_args()
 
         id = args['ID']
-        passwd = args['passwd']
+        old_passwd = args['old_passwd']
+        new_passwd = args['new_passwd']
 
         users = user_DAO.getUser()
-        users = [i[0] for i in users]
-        if id in users:
-            return user_DAO.updateUser(id, passwd)
+        # users = [i[0] for i in users]
+        if (id, old_passwd) in users:
+            return user_DAO.updateUser(id, new_passwd)
         else:
-            # 패스워드 검증 후 틀리면 False
             return False
 
     def put(self):  # put method :  all change(Delete and insert)
