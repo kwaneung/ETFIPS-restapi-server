@@ -20,9 +20,9 @@ class Login(Resource):
         id = args['ID']
         passwd = args['passwd']
 
-        rows = user_DAO.getUser()  # id, name
+        users = user_DAO.getUser()  # id, name
 
-        if (id, passwd) in rows:
+        if (id, passwd) in users:
             print('Result : True')
             return {'result': 'true'}
         else:
