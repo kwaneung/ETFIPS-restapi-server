@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.7.6
 
 COPY ./server.py server.py
 COPY ./user_DAO.py user_DAO.py
