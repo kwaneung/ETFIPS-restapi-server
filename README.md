@@ -20,7 +20,7 @@ user_service.py : 로직 처리
 - delete(Delete Method) : delete user {id}
 - put(Update/Replace Method) : not implemented
 
-/user_set
+/userset
 - post(Create Method) : insert user_set {max_prft_pct, min_loss_pct, prft_from_prev_mon, loss_from_prev_mon, money}
 - patch(Update/Modify) : update user_set {max_prft_pct, min_loss_pct, prft_from_prev_mon, loss_from_prev_mon, money}
 - get(Read Method) : get user_set(dic형으로 반환해야하는데 어떻게 할지 고민좀 해야할듯?)
