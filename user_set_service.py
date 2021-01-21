@@ -8,7 +8,7 @@ import user_DAO
 # 실패시 반환은 모두 False지만 추후 유지보수 시 logging 모듈을 통해 각 False가 어떤 오류인지
 # 로깅 할 필요가 있음
 
-class User(Resource):
+class UserSet(Resource):
     def get(self):  # select
         # 튜플을 딕셔너리로 변환 후 반환
         return {i[0]: i[1] for i in user_DAO.getUser()}
