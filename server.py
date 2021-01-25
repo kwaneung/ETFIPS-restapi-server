@@ -30,7 +30,16 @@ class Login(Resource):
             print('False')
             return {'result': 'false'}
 
+test = (1, 2)
+test2 = [3, 4, 5, 6]
+a = {"test" : test, "test2" : test2}
+print(a)
+class test(Resource):
+    def get(self):
+        return a
 
+
+api.add_resource(test, '/test')
 api.add_resource(Login, '/login')
 api.add_resource(User, '/user')
 api.add_resource(UserSet, '/userset')

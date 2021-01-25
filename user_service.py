@@ -15,11 +15,11 @@ class User(Resource):
 
     def post(self):  # insert
         parser = reqparse.RequestParser()
-        parser.add_argument('ID', type=str)
+        parser.add_argument('id', type=str)
         parser.add_argument('password', type=str)
         args = parser.parse_args()
 
-        id = args['ID']
+        id = args['id']
         password = args['password']
 
         users = user_DAO.getUser()
@@ -32,10 +32,10 @@ class User(Resource):
 
     def delete(self):  # delete
         parser = reqparse.RequestParser()
-        parser.add_argument('ID', type=str)
+        parser.add_argument('id', type=str)
         args = parser.parse_args()
 
-        id = args['ID']
+        id = args['id']
 
         users = user_DAO.getUser()
         users = [i[0] for i in users]
@@ -46,12 +46,12 @@ class User(Resource):
 
     def patch(self):  # update
         parser = reqparse.RequestParser()
-        parser.add_argument('ID', type=str)
+        parser.add_argument('id', type=str)
         parser.add_argument('old_password', type=str)
         parser.add_argument('new_password', type=str)
         args = parser.parse_args()
 
-        id = args['ID']
+        id = args['id']
         old_password = args['old_password']
         new_password = args['new_password']
 
