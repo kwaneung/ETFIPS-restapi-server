@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 from flask_restful import reqparse
 
 import user_set_DAO
+import user_DAO
 
 
 # 실패시 반환은 모두 False지만 추후 유지보수 시 logging 모듈을 통해 각 False가 어떤 오류인지
@@ -37,7 +38,13 @@ class UserSet(Resource):
         loss_from_prev_mon = args['loss_from_prev_mon']
         money = args['money']
 
-        return user_set_DAO.updateUserSet(id, max_prft_pct, min_loss_pct, prft_from_prev_mon, loss_from_prev_mon, money)
+        users = user_DAO.getUser()
+        users = [i[0] for i in users]  # id만 추출
+        # 없는 user id거나 패스워드가 틀리면 False 반환
+        if id in users:
+            return user_set_DAO.updateUserSet(id, max_prft_pct, min_loss_pct, prft_from_prev_mon, loss_from_prev_mon, money)
+        else:
+            return False
 
     def put(self):  # put method :  all change(Delete and insert)
         return "not implemented"

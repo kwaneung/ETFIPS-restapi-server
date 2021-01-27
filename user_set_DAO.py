@@ -15,8 +15,8 @@ def dbConnect(host, user, password, db):
 def sqlExcute(connect, sql, var):
     try:
         cur = connect.cursor()
-        print(sql)
-        print(var)
+        # print(sql)
+        # print(var)
         cur.execute(sql, var)
         connect.commit()
         return True
@@ -47,7 +47,7 @@ def updateUserSet(id, max_prft_pct, min_loss_pct, prft_from_prev_mon, loss_from_
         return False
     else:
         # cur = connect.cursor()
-        print(id, max_prft_pct, min_loss_pct, prft_from_prev_mon, loss_from_prev_mon, money)
+        # print(id, max_prft_pct, min_loss_pct, prft_from_prev_mon, loss_from_prev_mon, money)
         sql = """update user set max_prft_pct=%s, min_loss_pct=%s, prft_from_prev_mon=%s, loss_from_prev_mon=%s, money=%s where id=%s"""
         # cur.execute(sql, (password, id))
         # connect.commit()
